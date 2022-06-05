@@ -10,6 +10,7 @@ jobs:
 
   build:
     name: 🎉 Build
+    if: github.event.action == 'closed'
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -22,11 +23,3 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-
-    - name: 🎉 Build
-      if: github.event.action == 'closed'
-      run: |
-        
-    - name: 🎉 Deploy
-      if: github.event.action == 'reverted'
-      run: |
