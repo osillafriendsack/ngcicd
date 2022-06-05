@@ -10,7 +10,7 @@ jobs:
 
   build:
     name: 🎉 Build
-    if: github.event.action == 'closed'
+    if: contains(github.event.comment.body, 'revert')
     runs-on: ubuntu-latest
     strategy:
       matrix:
